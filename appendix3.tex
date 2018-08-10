@@ -1,0 +1,50 @@
+\chapter{Derivation of Reaction Rate Equation}\label{app:reaction_rate}
+\begin{equation}
+\langle \sigma v \rangle = \iint \sigma(E_{rel}) ||\mathbf{v} - \mathbf{v'}|| \delta(\mathbf{v'}-\mathbf{v}_B) \left [ \frac{m_T}{2\pi kT} \right ]^{\frac{3}{2}} e^{-\frac{m_T}{2kT}(\mathbf{v}\cdot\mathbf{v})} d\mathbf{v}'\,d\mathbf{v}
+\end{equation}
+
+Let $\mathbf{v}_B$ be in the $\hat{z}$ direction and calculate the first integral
+
+\begin{equation}
+\int \sigma(E_{rel}) \sqrt{v_x^2 + v_y^2 + (v_z - v_B)^2}\left [ \frac{m_T}{2\pi kT} \right ]^{\frac{3}{2}} e^{-\frac{m_T}{2kT}(\mathbf{v}\cdot\mathbf{v})} d\mathbf{v}
+\end{equation}
+
+Let $v_r = v_x cos(\theta) + v_y sin(\theta)$ the integral takes the form
+
+\begin{equation}
+\left[ \frac{m_T}{2\pi kT} \right ]^{\frac{3}{2}} \iint \int_0^{2\pi} \sigma(E_{rel}) \sqrt{v_r^2 + (v_z - v_B)^2}  e^{-\frac{m_T}{2kT}(v_r^2 + v_z^2)} v_r d\theta\,dv_r\,dv_z\
+\end{equation}
+
+Integrating over $\theta$ yields
+\begin{equation}
+\frac{2}{\sqrt{\pi}}\left[ \frac{m_T}{2 kT} \right ]^{\frac{3}{2}} \iint \sigma(E_{rel}) \sqrt{v_r^2 + (v_z - v_B)^2}  e^{-\frac{m_T}{2kT}(v_r^2 + v_z^2)} v_r \,dv_r\,dv_z\
+\end{equation}
+
+Let $v_z = \sqrt{\frac{2kT}{m_T}} u_z$ and $v_r = \sqrt{\frac{2kT}{m_T}} u_r$
+
+\begin{equation}
+\frac{2}{\sqrt{\pi}}\left[ \frac{m_T}{2 kT} \right ]^{\frac{3}{2}} \iint \sigma(E_{rel}) \sqrt{\frac{2kT}{m_T} u_r^2 + \left (\sqrt{\frac{2kT}{m_T}} u_z - v_B\right)^2}  e^{-(u_r^2 + u_z^2)} \left[\frac{2kT}{m_T}\right]^{\frac{3}{2}} u_r\,du_r\,du_z
+\end{equation}
+
+Simplifying
+
+\begin{equation}\label{eq:cylindrical}
+\langle \sigma v \rangle = \frac{2}{\sqrt{\pi}}\sqrt{\frac{2kT}{m_T}} \iint \sigma(E_{rel}) \sqrt{u_r^2 + \left (u_z - \sqrt{\frac{m_T}{2kT}} v_B\right)^2}  e^{-(u_r^2 + u_z^2)}u_r \,du_r\,du_z\
+\end{equation}
+The velocity of the beam ion is given by
+\begin{equation}
+v_B = \sqrt{\frac{2E_B}{m_B}}
+\end{equation}
+Plugging the beam velocity into equation \ref{eq:cylindrical} gives
+\begin{equation}
+\langle \sigma v \rangle = \frac{2}{\sqrt{\pi}}\sqrt{\frac{2kT}{m_T}} \iint \sigma(E_{rel}) \sqrt{u_r^2 + \left (u_z - \sqrt{\frac{E_B m_T}{m_B kT}}\right)^2}  e^{-(u_r^2 + u_z^2)}u_r \,du_r\,du_z\
+\end{equation}
+
+The relative energy, $E_{rel}$ is given by 
+\begin{equation}
+E_{rel} = \frac{1}{2}\mu\left ( v_r^2 + (v_z - v_B)^2 \right )
+\end{equation}
+where $\mu$ is the reduced mass. In terms of the transformed velocity $u$ the relative energy is 
+\begin{equation}
+E_{rel} = \mu \frac{kT}{m_T} \left ( u_r^2 + \left(u_z - \sqrt{\frac{E_B m_T}{m_B kT}}\right)^2 \right )
+\end{equation}

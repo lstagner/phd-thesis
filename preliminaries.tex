@@ -1,0 +1,246 @@
+\thesistitle{Inference of the Fast-ion Distribution Function}
+
+%"Dissertation" for PhD, "Thesis" for master's
+\documenttitle{Dissertation}
+
+\degreename{Doctor of Philosophy}
+
+% Use the wording given in the official list of degrees awarded by UCI:
+% http://www.rgs.uci.edu/grad/academic/degrees_offered.htm
+\degreefield{Physics}
+
+% Your name as it appears on official UCI records.
+\authorname{Luke Edward Stagner}
+
+% Use the full name of each committee member.
+\committeechair{Professor William W. Heidbrink}
+\othercommitteemembers
+{
+  Professor Zhihong Lin\\
+  Professor Roger D. McWilliams
+}
+
+\degreeyear{2018}
+
+\copyrightdeclaration
+{
+  {\copyright} {\Degreeyear} \Authorname
+}
+
+% If you have previously published parts of your manuscript, you must list the
+% copyright holders; see Section 3.2 of the UCI Thesis and Dissertation Manual.
+% Otherwise, this section may be omitted.
+\prepublishedcopyrightdeclaration
+{
+	Portions of Chapters 2, 4 {\copyright} 2017 AIP Publishing LLC. \\
+	Portion of Chapter 3 {\copyright} 2014 AIP Publishing LLC. \\
+	Portion of Chapter 5 {\copyright} 2016 IOP Publishing Ltd. \\
+	All other materials {\copyright} {\Degreeyear} \Authorname
+}
+
+% The dedication page is optional
+% (comment out to exclude).
+\dedications
+{
+To my Mom who always supported me \\and to my Dad who never helped me with my homework.\footnote{This isn't mean. It's an inside joke.}
+}
+
+\acknowledgments
+{
+This work was supported by the U.S. Department of Energy under Grant Nos. DE-FC02-04ER54698, DE-FG02-06ER54867, and DE-FG03-02ER54681. 
+
+This work contains figures provided by Deyong Liu, Ben Geiger, Asger Schou Jacobsen, Cami Collins, Xiaodi Du, Markus Weiland, and Mirko Salewski.
+
+Portions of this work contains excerpts from the following previous publications.
+\begin{itemize}
+    \item Chapter \ref{chap:fidasim}: \textbf{L. Stagner} and W.W. Heidbrink. ``On geometric factors for neutral particle analyzers.'' \emph{Review of Scientific Instruments} 85.11 (2014): 11D803
+    \item Chapters \ref{chap:diagnostics} and \ref{chap:weights}: \textbf{L. Stagner} and W.W. Heidbrink. ``Action-angle formulation of generalized, orbit-based, fast-ion diagnostic weight functions.'' \emph{Physics of Plasmas} 24.9 (2017): 092505
+    \item Chapter \ref{chap:velocity-space_tomography}: A.S. Jacobsen, \textbf{L. Stagner}, et. al. ``Inversion methods for fast-ion velocity-space tomography in fusion plasmas.'' \emph{Plasma Physics and Controlled Fusion} 58.4 (2016): 045016
+\end{itemize}
+
+I would like to personally thank the following people. My advisor Bill Heidbrink who is much more patient with me than he should be, Mirko Salewski and Asger Schou Jacobsen for the fruitful collaboration regarding weight functions and tomography, Ben Geiger for writing the original Fortran version of FIDASIM and for the ongoing collaboration regarding the code, and the numerous people at DIII-D, NSTX-U, and ASDEX Upgrade who worked behind the scenes providing experimental support.
+
+I would also like to thank my friends and class-mates who put up with me wandering into their offices: Mohammad Abdullah, Nicolas Canac, Anthony DiFranzo, Oliver Elbert, Deano Farinella, Sahel Hakimi, Calvin K Lau, Andrew Pace, Chase Shimmin, Sam Taimourzadeh, Pierce Weatherly, and Alex Wijangco who deserves a special thanks for the couch, where I sometimes slept.
+}
+
+
+% Some custom commands for your list of publications and software.
+\newcommand{\mypubentry}[4]{
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}p{4.5in}r}
+    \textbf{#1} & \textbf{#2} \\
+    \multicolumn{2}{@{\extracolsep{\fill}}p{.95\textwidth}}
+    {\footnotesize {#3}} \vspace{6pt} \\
+    \multicolumn{2}{@{\extracolsep{\fill}}p{.95\textwidth}}{\emph{#4}}\vspace{6pt} \\
+  \end{tabular*}
+  
+}
+\newcommand{\mytalkentry}[3]{
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}p{4.5in}r}
+    \textbf{#1} & \textbf{#2} \\ 
+    \multicolumn{2}{@{\extracolsep{\fill}}p{.95\textwidth}}{#3}\vspace{6pt} \\
+  \end{tabular*}
+}
+\newcommand{\mysoftentry}[3]{
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}lr}
+    \textbf{#1} & \url{#2} \\
+    \multicolumn{2}{@{\extracolsep{\fill}}p{.95\textwidth}}
+    {\emph{#3}}\vspace{6pt} \\
+  \end{tabular*}
+}
+
+% Include, at minimum, a listing of your degrees and educational
+% achievements with dates and the school where the degrees were
+% earned. This should include the degree currently being
+% attained. Other than that it's mostly up to you what to include here
+% and how to format it, below is just an example.
+%
+% CV is required for PhD theses, but not Master's
+% comment out to exclude
+\curriculumvitae
+{
+
+\textbf{EDUCATION}
+  
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}lr}
+    \textbf{Doctor of Philosophy in Physics} & \textbf{2018} \\
+    \vspace{6pt}
+    University of California, Irvine & \emph{Irvine, California} \\
+    \textbf{Bachelor of Science in Physics} & \textbf{2011} \\
+    \vspace{3pt}
+    \small Graduated Cum Laude and with Honors \\
+    \vspace{6pt}
+    University of California, Irvine & \emph{Irvine, California} \\
+  \end{tabular*}
+
+\vspace{12pt}
+\textbf{RESEARCH EXPERIENCE}
+
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}lr}
+    \textbf{Graduate Student Researcher {\small \emph{with Dr. Bill Heidbrink}}} & \textbf{2012--2018} \\
+    \vspace{6pt}
+    University of California, Irvine & \emph{Irvine, California} \\
+  \end{tabular*}
+  
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}lr}
+    \textbf{Undergraduate Research {\small \emph{with Dr. Bill Heidbrink}}} & \textbf{2010--2011} \\
+    \vspace{6pt}
+    University of California, Irvine & \emph{Irvine, California} \\
+  \end{tabular*}
+
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}lr}
+    \textbf{Undergraduate Research {\small \emph{with Dr. Roger McWilliams}}} & \textbf{2009} \\
+    \vspace{6pt}
+    University of California, Irvine & \emph{Irvine, California} \\
+  \end{tabular*} 
+ 
+\vspace{12pt}
+\textbf{TEACHING EXPERIENCE}
+
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}lr}
+    \textbf{Teaching Assistant} & \textbf{2011--2012} \\
+    \vspace{6pt}
+    University of California, Irvine & \emph{Irvine, California} \\
+  \end{tabular*}
+
+\vspace{12pt}
+\textbf{OTHER EXPERIANCE}
+
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}lr}
+    \textbf{Technical Consultant} & \textbf{2017} \\
+    \vspace{6pt}
+    TAE Technologies & \emph{Foothill Ranch, California} \\
+  \end{tabular*}
+  
+\vspace{12pt}
+\textbf{AWARDS AND FELLOWSHIPS}
+
+  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}lr}
+    Oak Ridge Institute for Science and Education (ORISE) Post-Doctoral Fellowship
+     & \textbf{2018} \\
+  \end{tabular*}
+\pagebreak
+
+\textbf{REFEREED JOURNAL PUBLICATIONS}
+
+  \mypubentry{Measurement of the Passive Fast-ion D-$\alpha$ Emission on the NSTX-U Tokamak}{2018}{G.Z. Hao, W.W. Heidbrink, D. Liu, M. Podesta, \textbf{L. Stagner}, RE Bell, A Bortolon, and F Scotti}{Plasma Physics and Controlled Fusion}
+
+  \mypubentry{Action-angle Formulation of Heneralized, Orbit-based, Fast-ion Diagnostic Weight Functions}{2018}{\textbf{L. Stagner} and W. W. Heidbrink}{Physics of Plasmas}
+
+  \mypubentry{Phase-space dependent critical gradient behavior of fast-ion transport due to alfvén eigenmodes}{2017}{C.S. Collins, W.W. Heidbrink, M. Podesta, R.B. White, G.J. Kramer, D.C. Pace, C.C. Petty, \textbf{L. Stagner}, M.A. Van Zeeland, Y.B. Zhu, et al.}{Nuclear Fusion}
+
+  \mypubentry{Deuterium Charge Exchange Recombination Spectroscopy from the Top of the Pedestal to the Scrape-off layer in H-mode Plasmas}{2017}{S.R. Haskey, B.A. Grierson, L. Stagner, K.H. Burrell, C. Chrystal, R.J. Groebner, A. Ashourvan, and N.A. Pablant}{Journal of Instrumentation}
+
+  \mypubentry{Fast-ion Transport by Alfvén Eigenmodes above a Critical Gradient Threshold}{2017}{W.W. Heidbrink, C.S. Collins, M. Podestà, G.J. Kramer, D.C. Pace, C.C. Petty, \textbf{L. Stagner}, M.A. Van Zeeland, R.B. White, and Y.B. Zhu}{Physics of Plasmas}
+
+  \mypubentry{First Fast-ion D-alpha (FIDA) Measurements and Simulations on C-2U}{2016}{N.G. Bolte, D. Gupta, \textbf{L. Stagner}, M. Onofri, S. Dettrick, E.M. Granstedt, and P. Petrov}{Review of Scientific Instruments}
+  
+  \mypubentry{Measurement of Deuterium Density Profiles in the H-mode Steep Gradient Region using Charge Exchange Recombination Spectroscopy on DIII-D}{2016}{S.R. Haskey, B.A. Grierson, K.H. Burrell, C. Chrystal, R.J. Groebner, D.H. Kaplan, N.A. Pablant, and \textbf{L. Stagner}}{Review of Scientific Instruments}
+  
+  \mypubentry{Analysis of Fast-ion D-$\alpha$ Data from the National Spherical Torus Experiment}{2016}{W.W. Heidbrink, E. Ruskov, D. Liu, \textbf{L. Stagner}, E.D. Fredrickson, M. Podesta, and A. Bortolon}{Nuclear Fusion}
+
+  \mypubentry{Interpretation of Fast-ion Signals during Beam Modulation Experiments}{2016}{W.W. Heidbrink, C.S. Collins, \textbf{L. Stagner}, Y.B. Zhu, C.C. Petty, and M.A. Van Zeeland}{Nuclear Fusion}
+
+  \mypubentry{Validation of Fast-ion D-alpha Spectrum Measurements during EAST Neutral-beam Heated Plasmas}{2016}{J. Huang, W. W. Heidbrink, M. G. von Hellermann, \textbf{L. Stagner}, C.R. Wu, Y.M. Hou, J.F. Chang, S.Y. Ding, Y.J. Chen, Y.B. Zhu, Z. Jin, Z. Xu, W. Gao, J.F. Wang, B. Lyu, Q. Zang, G.Q. Zhong, L. Hu, B. Wan, \emph{et. al.}}{Review of Scientific Instruments}
+  
+  \mypubentry{Inversion Methods for Fast-ion Velocity-space Tomography in Fusion Plasmas}{2016}{A.S. Jacobsen, \textbf{L. Stagner}, M. Salewski, B. Geiger, W.W. Heidbrink, S.B. Korsholm, F. Leipold, S.K. Nielsen, J. Rasmussen, M. Stejner, H. Thomsen, and M. Weiland}{Plasma Physics and Controlled Fusion}
+  
+  \mypubentry{Observation of Critical-gradient Behavior in Alfv\`en-eigenmode-induced Fast-ion Transport}{2016}{C.S. Collins, W.W. Heidbrink, M.E. Austin, G.J. Kramer, D.C. Pace, C.C. Petty, \textbf{L. Stagner}, M.A. Van Zeeland, R.B. White, and Y.B. Zhu}{Physics Review Letters}
+  
+  \mypubentry{Implementation of a 3D Halo Neutral Model in the TRANSP Code and Application to Projected NSTX-U Plasmas}{2016}{S.S. Medley, D. Liu, M.V. Gorelenkova, W.W. Heidbrink, and \textbf{L. Stagner}}{Plasma Physics and Controlled Fusion}
+  
+  \mypubentry{Doppler Tomography in Fusion Plasmas and Astrophysics}{2014}{M. Salewski, B. Geiger, W.W. Heidbrink, A.S. Jacobsen, S.B. Korsholm, F. Leipold, J. Madsen, D. Moseev, S.K. Nielsen, J. Rasmussen, \textbf{L. Stagner}, D. Steeghs, M. Stejner, G. Tardini, and M. Weiland}{Plasma Physics and Controlled Fusion}
+  
+  \mypubentry{On Geometric Factors for Neutral Particle Analyzers}{2014}{\textbf{L. Stagner} and W.W. Heidbrink}{Review of Scientific Instruments}
+  
+  \mypubentry{Confinement Degradation by Alfv\`en-eigenmode Induced Fast-ion Transport in Steady-state Scenario Discharges}{2014}{W.W. Heidbrink, J.R. Ferron, C.T. Holcomb, M.A. Van Zeeland, Xi Chen, C.M. Collins, A. Garofalo, X. Gong, B.A. Grierson, M. Podesta, \textbf{L. Stagner}, and Y. Zhu}{Plasma Physics and Controlled Fusion}  
+%=======================================================
+\vspace{12pt}
+\textbf{TALKS}
+
+  \mytalkentry{(Invited) Inferring the Distribution Function from Diagnostic Measurements}{April 2018}{22nd Topical Conference on High-Temperature Plasma Diagnostics}
+  
+  \mytalkentry{Determining the population of Individual Fast-ion Orbits using Generalized Diagnostic Weight Functions}{September 2017}{15th IAEA Technical Meeting on Energetic Particles in Magnetic Confinement Systems}
+  
+  \mytalkentry{Determining the Population of Individual Fast-ion Orbits using Generalized Diagnostic Weight Functions}{May 2017}{2nd IAEA Technical Meeting on Fusion Data Processing Validation and Analysis}
+
+\pagebreak
+
+\textbf{SOFTWARE}
+
+  \mysoftentry{FIDASIM}{www.github.com/D3DEnergetic/FIDASIM}
+  {A Neutral Beam and Fast-ion Diagnostic Modeling Suite}
+  
+  \mysoftentry{GuidingCenterOrbits.jl}{www.github.com/JuliaFusion/GuidingCenterOrbits.jl}
+  {Julia package for calculating guiding-center fast-ion orbits}
+
+  \mysoftentry{Equilibrium.jl}{www.github.com/JuliaFusion/Equilibrium.jl}
+  {Julia package for working with MHD equilibrium}
+  
+  \mysoftentry{EFIT.jl}{www.github.com/JuliaFusion/EFIT.jl}
+  {Julia package for reading EFIT's GEQDSK files}
+  
+  \mysoftentry{ConcaveHull.jl}{www.github.com/lstagner/ConcaveHull.jl}
+  {Julia package for calculating concave hulls}
+  
+  \mysoftentry{FastKmeans.jl}{www.github.com/lstagner/FastKmeans.jl}
+  {Julia package for fast k-means clustering}
+}
+
+% The abstract should not be over 350 words, although that's
+% supposedly somewhat of a soft constraint.
+\thesisabstract
+{
+All the information about a plasma species is encoded in its distribution function. While it would be helpful to measure the distribution function directly it is only possible to measure its moments. If the form of the distribution function is not known \textit{a priori} it can be difficult to interpret diagnostic signals. This is particularly true in fast-ion physics where diagnostics that nominally view the same thing, the fast-ion distribution function, give seemingly discordant measurements. The processes of going from a fast-ion distribution to a measurement and the reverse process of going a measurement to a fast-ion distribution are the main topics of this thesis.
+
+Chapters \ref{chap:diagnostics}-\ref{chap:fidasim} concern the modeling of fast-ion diagnostics. Here we derive functions that translate the information about a fast ion into measurable quantities i.e. forward models. This is done for three diagnostics: the neutral particle analyzer (NPA), fast ion D-$\alpha$ spectroscopy, and neutron scintillators. Chapter \ref{chap:fidasim} discusses the development of FIDASIM\cite{heidbrink2011code,geiger2013thesis,FIDASIM}, the practical implementation of the forward models.
+
+Chapter \ref{chap:weights} deals with diagnostic velocity-space weight functions, an \textit{ansatz} which is used to aid in the interpretation of the fast-ion diagnostics and as an approximate forward model. From the forward models discussed in Chapter \ref{chap:diagnostics}, we derive weight functions in a full 6D generalized coordinate system, from which we also derive the velocity-space weight functions. Using an action-angle formulation, orbit-space weight functions, which can be used to \textit{exactly} represent a diagnostic's forward model in a linear form, are derived.
+
+Chapters \ref{chap:velocity-space_tomography}-\ref{chap:orbit_tomography} detail how to use weight functions to infer the fast-ion distribution function from experimental measurements. Orbit weight functions, in particular, facilitate the inference of the \textit{entire} distribution function, using any fast-ion diagnostic that views the plasma. Benchmarks with synthetic data and a reconstruction of a classical distribution from experimental measurements, show that systematic errors and intrinsic biases in the inference methods are the main impediments to accurately inferring the fast-ion distribution function. However, experimental studies of the redistribution of fast ions by sawtooth crashes at ASDEX Upgrade demonstrate that the effects of systematic error and biases become less important when only considering relative changes in the distribution function. 
+}
+
+
+%%% Local Variables: ***
+%%% mode: latex ***
+%%% TeX-master: "thesis.tex" ***
+%%% End: ***

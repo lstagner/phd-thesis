@@ -1,0 +1,38 @@
+\chapter{Time Dependent Collisional Radiative Model} \label{app:colrad}
+
+The collisions that the fast-neutral experiences as it travels through a plasma changes the distribution of its energy level population. The collisional radiative model assumes that the populations of excited states with the same principal quantum number $n$ are distributed according to a Boltzmann distribution. This allows us to only consider transitions between different energy levels. However, this assumption has been shown\cite{marchuk2012} to break down when the electron density is less than $10^{14}\, cm^{-3}$. In this regime the following collisional radiative model can overestimate the D-$\alpha$ emission by about $20\mbox{-}25\%$. This remains a source of error in our model.
+
+The types of collisions that the model considers are as follows
+\begin{itemize}
+    \item Spontaneous transitions: $A_{m \rightarrow n} / A_{n \rightarrow m}$
+    \item Electron/Ion/Impurity-impact excitation/de-excitation: $q^{e|i|Z}_{m \rightarrow n} / q^{e|i|Z}_{n \rightarrow m}$
+    \item Electron/Ion/Impurity-impact ionization: $I^{e|i|Z}_n$
+    \item Charge exchange with ions/impurities: $X^{i|Z}_n$
+\end{itemize}
+With the exception of the spontaneous transitions which has units of $s^{-1}$, the above rate coefficients have units of $cm^3/s$ and are calculated by averaging the respective collisional cross sections with a Maxwellian of the relevant species. 
+
+The quasi-static equilibrium population flux of the $n^{th}$ energy level of a neutral atom, $f_n$, can be described by the following time dependent differential equation
+\begin{align*}
+    \frac{df_n}{dt} = &- \left ( \sum_{k=i,Z} f_n d_k X^k_n + \sum_{k=e,i,Z} f_n d_k I^k_n \right )\\
+    & + \sum_{m>n} \left (f_m A_{m \rightarrow n} + \sum_{k=e,i,Z} (f_m d_k q^k_{m \rightarrow n} - f_n d_k q^k_{n \rightarrow m}) \right ) \\  
+    & + \sum_{n>m} \left (-f_n A_{n \rightarrow m} + \sum_{k=e,i,Z} (f_m d_k q^k_{m \rightarrow n} - f_n d_k q^k_{n \rightarrow m}) \right )
+\end{align*}  
+where the $d_k$ are the respective target densities.
+
+Rearranging terms and letting $q^k_{n \rightarrow m}$ represent excitation/de-excitation depending on the order of the indices yields the following equation,
+\begin{equation}
+    \frac{df_n}{dt} = C_{nn} f_n + \sum_{m \ne n} C_{nm} f_m,
+\end{equation}
+where
+\begin{equation}
+    C_{nn} = - \left [ \sum_{k=i,Z} d_k X^k_n + \sum_{k=e,i,Z} d_k I^k_n + \sum_{m \ne n} \left ( A_{n \rightarrow m} + \sum_{k=e,i,Z} d_k q^k_{n \rightarrow m} \right ) \right ]
+\end{equation}
+and 
+\begin{equation}
+    C_{nm} = A_{m \rightarrow n} + \sum_{k=e,i,Z} d_k q^k_{m \rightarrow n}.
+\end{equation}
+
+The system of differential equations can be compactly represented as a matrix multiplication.
+\begin{equation}\label{eq:el_diffeq}
+    \frac{d \mathbf{f}}{dt} = \mathbf{C} \cdot \mathbf{f}
+\end{equation}
