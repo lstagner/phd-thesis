@@ -5,14 +5,14 @@ Unlike bulk-ion diagnostics that measure Maxwellian distributed velocities, fast
 The lack of a simple parametrization of the fast-ion velocity distribution makes it difficult to draw correlations between experimental data and the relevant fast-ion physics.
 In an effort to aid the modeling, interpretation, and experimental design of fast-ion diagnostics, the following \textit{ansatz} was proposed\cite{heidbrink2007}
 \begin{equation}\label{eq:vs_WF}
-    S_{tot} = \iint W(E,p)F(E,p)\,dEdp
+    S_{tot} = \iint W(E,p)F(E,p)\,dEdp\,,
 \end{equation}
 where $S_{tot}$ is the total diagnostic signal, $F(E,p)$ is the fast-ion energy-pitch distribution function, and $W(E,p)$ is a diagnostic weighting function, colloquially known as the velocity-space weight function. The weight function indicates the phase-space sensitivity of the diagnostic, allowing for easier interpretation of the diagnostic data. As an aside, it is also common to formulate the weight functions in terms of the velocities parallel and perpendicular to the magnetic field, hence the name velocity-space weight functions. The transformation between the two coordinates is detailed in Appendix \ref{app:ep2vs}.
 
 In the following sections, we will discuss how velocity-space weight functions are used and their limitations. We then show how to derive generalized diagnostic weight functions from the full forward models. With this firm theoretical footing, we also show how the generalized weight functions can be used to derive weight functions in guiding-center orbit space.
 
 \section{Velocity-space Weight Functions}
-Since their introduction, there has been a focused effort in calculating velocity-space weight functions for more fast-ion diagnostics\cite{salewski2011,salewski2014,jacobsen2015,salewski2015,salewski2016}. Figure \ref{fig:vs_weights} shows velocity-space weight functions, calculated by FIDASIM, for the neutron, NPA, and FIDA diagnostics. The velocity-space weight functions are used primarily to interpret diagnostic signals. While forward modeling can tell you \textit{what} the expected diagnostic signal should be, it provides little insight into the \textit{why}. Velocity-space weight functions provide a way to inspect diagnostic signals at a deeper level. 
+Since their introduction, there has been a focused effort in calculating velocity-space weight functions for fast-ion diagnostics\cite{salewski2011,salewski2014,jacobsen2015,salewski2015,salewski2016}. Figure \ref{fig:vs_weights} shows velocity-space weight functions, calculated by FIDASIM, for the neutron, NPA, and FIDA diagnostics. The velocity-space weight functions are used primarily to interpret diagnostic signals. While forward modeling can tell you \textit{what} the expected diagnostic signal should be, it provides little insight into the \textit{why}. Velocity-space weight functions provide a way to inspect diagnostic signals at a deeper level. 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=13cm]{figures/velocity_space_weights.eps}
@@ -46,9 +46,9 @@ Despite looking at the same radial location, the waveforms for the small and lar
     \caption{Weight function analysis: Top row: comparison of the FIDA waveforms for small/alpha (red line) and large/beta (blue line) Doppler shifts at $R=181$ cm. Colored dashed lines are the data. Middle row: time evolution of the product of the large Doppler shift velocity-space weight function and the local theoretical distribution function. Bottom row: time evolution of the product of the small Doppler shift velocity-space weight function and the distribution function. The color-maps increase linearly from light to dark. The distribution function is calculated using the TRANSP/NUBEAM\cite{NUBEAM} code.}
     \label{fig:fida_waveform_WF}
 \end{figure}
-The weight functions in Figure \ref{fig:fida_waveform_WF} are sensitive to different regions in phase-space. The alpha weight function is only sensitive to fast ions with energies greater than $\sim$40keV, while the beta weight function is sensitive to lower energies, $>$20keV. If we take the weight functions to have a similar pattern of sensitivity as Figure \ref{fig:vs_weights}c the reasons for the shape of the waveforms are apparent. For the beta waveform, the fast-ions are born into a higher sensitivity region and move into regions of zero sensitivity. Comparatively, for the alpha waveform the fast ions are born in a low sensitivity region and move into higher sensitivity regions as they slow down. This results in a quicker growth in the beta waveform and slower growth in the alpha waveform. When the beam is turned off in the middle of the period the alpha waveform decays slowly due to a large fraction of the fast-ions still in the weight function's sensitive region. For similar yet opposing reasons, the beta waveform decays more quickly when the beam is turned off.
+The weight functions in Figure \ref{fig:fida_waveform_WF} are sensitive to different regions in phase-space. The alpha weight function is only sensitive to fast ions with energies greater than $\sim$40keV, while the beta weight function is sensitive to lower energies, $>$20keV. If we take the weight functions to have a similar pattern of sensitivity as Figure \ref{fig:vs_weights}c, the reasons for the shape of the waveforms are apparent. For the beta waveform, the fast-ions are born into a higher sensitivity region and move into regions of zero sensitivity. Comparatively, for the alpha waveform the fast ions are born in a low sensitivity region and move into higher sensitivity regions as they slow down. This results in a quicker growth in the beta waveform and slower growth in the alpha waveform. When the beam is turned off in the middle of the period, the alpha waveform decays slowly due to a large fraction of the fast-ions still in the weight function's sensitive region. For similar yet opposing reasons, the beta waveform decays more quickly when the beam is turned off.
 
-In addition to enhancing our ability to analyze experimental data, velocity-space weight functions provide a method of inferring the local fast-ion distribution function\cite{salewski2013_tomography,salewski2014_tomography}. Equation \ref{eq:vs_WF} can be discretized, creating a system of linear equations. When multiple diagnostics view the same spatial location, the system of linear equations can be solved via various numerical methods\cite{jacobsen_stagner2016}. This application of weight functions will be discussed in depth in the next chapter.
+In addition to enhancing our ability to analyze experimental data, velocity-space weight functions provide a method of inferring the local fast-ion distribution function\cite{salewski2013_tomography,salewski2014_tomography}. Equation \ref{eq:vs_WF} can be discretized, creating a system of linear equations. When multiple diagnostics view the same spatial location, the system of linear equations can be solved via various numerical methods\cite{jacobsen_stagner2016}. This application of weight functions will be discussed, in depth, in the next chapter.
 
 Velocity-space weight functions have enhanced our ability to understand diagnostic signals and, through Velocity-space Tomography, the fast-ion distribution function itself. However, velocity-space weight functions are hindered, both in their accuracy and in their practicality due to the implicit assumption that diagnostic signals are spatially localized. The flaws in this assumption can be made plain by comparing the diagnostic signals calculated using FIDASIM and Equation \ref{eq:vs_WF}.
 \begin{figure}[h!]
@@ -74,7 +74,7 @@ In practice, due to limited port access, radial arrays from one or two ports are
 To resolve these crippling limitations, a generalization of Equation \ref{eq:vs_WF} to include spatial dependencies needs to be derived.
 
 \section{Generalized Diagnostic Weight Functions} \label{sec:generalized_weight}
-Velocity-space weight functions are typically derived using variations of probabilistic arguments\cite{salewski2011,salewski2014,jacobsen2015,salewski2015,salewski2015}. When considering a fixed location within the plasma, a probabilitic approach is often simpler. However, in order to properly account for the spatial dependencies of the diagnostics, a different tack is needed.
+Velocity-space weight functions are typically derived using variations of probabilistic arguments\cite{salewski2011,salewski2014,jacobsen2015,salewski2015,salewski2015}. When considering a fixed location within the plasma, a probabilistic approach is often simpler. However, in order to properly account for the spatial dependencies of the diagnostics, a different tack is needed.
 
 Consider a fast ion with phase-space coordinates $\mathbf{x} = [\mathbf{p},\mathbf{q}]$, where $\mathbf{p}$ and $\mathbf{q}$ are the generalized momentum and position, respectively.
 As seen in Chapter \ref{chap:diagnostics}, the forward models for many fast-ion diagnostics can be expressed as a function, $S(\mathbf{x})$, which gives the expected signal produced by a fast ion with phase-space coordinates $\mathbf{x}$.
@@ -95,19 +95,19 @@ In the continuum limit, the discrete sum in the above equation can be replaced b
 where $F(\mathbf{x})$ is the fast-ion distribution function.
 By inspection, it is clear that Equation \ref{eq:SF} is the generalized version of equation \ref{eq:vs_WF}.
 
-Upon comparing Equation \ref{eq:SF} with how FIDASIM simulates the diagnostics it is apparent that they are equivalent as FIDASIM evaluates Equation \ref{eq:SF} via Monte Carlo integration.
+Upon comparing Equation \ref{eq:SF} with how FIDASIM simulates the diagnostics, it is apparent that they are equivalent as FIDASIM evaluates Equation \ref{eq:SF} via Monte Carlo integration.
 \begin{equation}
-    S_{tot} \approx \frac{1}{N_t} \sum_i^{N_t} S(\mathbf{x}_i)\quad \rm{where}\; \mathbf{x}_i \sim F(\mathbf{x})
+    S_{tot} \approx \frac{1}{N_t} \sum_i^{N_t} S(\mathbf{x}_i)\quad \rm{where}\; \mathbf{x}_i \sim F(\mathbf{x})\,,
 \end{equation}
 where $N_t$ is the number of FIDASIM's ``trajectories'', which just correspond to samples, $\mathbf{x}_i$, from the distribution function, $F(\mathbf{x})$. In fact, FIDASIM's neutral density calculations can also put into the form of Equation \ref{eq:SF} where, instead of the fast-ion distribution, the distribution function is either the neutral beam distribution, for the beam density calculation, or the thermal ion distribution, for the direct charge exchange and halo densities.
 
 From the generalized form, we can also derive the velocity-space weight functions.
-Consider the phase-space coordinate system $\mathbf{x} = \{E,p,\gamma, R, Z, \phi\}$, where $E$ is the energy, $p$ is the pitch with respect to the plasma current ($p=v_{\parallel}/v$), $\gamma$ is the gyro-angle, $R$ is the major radius, $Z$ is the elevation, and $\phi$ is the toroidal angle, the velocity-space weight function in Equation \ref{eq:vs_WF} can be recovered by averaging over the phase-space variables $R$, $Z$, $\phi$, and $\gamma$.\footnote{To remind readers, averaging over a variable in a function involves integrating over the product of the function and the probability of the variable. For example, $g(x) = \int f(x,y)p(y)dy$ is averaging $f(x,y)$ over $y$.}
-Since most velocity-space weight functions are gyro-averaged and spatially localized the following reduction of equation \ref{eq:SF} reproduces the velocity-space weight function:
+Consider the phase-space coordinate system $\mathbf{x} = \{E,p,\gamma, R, Z, \phi\}$, where $E$ is the energy, $p$ is the pitch with respect to the plasma current ($p=v_{\parallel}/v$), $\gamma$ is the gyro-angle, $R$ is the major radius, $Z$ is the elevation, and $\phi$ is the toroidal angle. The velocity-space weight function in Equation \ref{eq:vs_WF} can be recovered by averaging over the phase-space variables $R$, $Z$, $\phi$, and $\gamma$.\footnote{To remind readers, averaging over a variable in a function involves integrating over the product of the function and the probability of the variable. For example, $g(x) = \int f(x,y)p(y)dy$ is averaging $f(x,y)$ over $y$.}
+Since most velocity-space weight functions are gyro-averaged and spatially localized, the following reduction of equation \ref{eq:SF} reproduces the velocity-space weight function:
 \begin{equation}\label{eq:vs_reduction}
     W(E,p) = \frac{1}{2\pi} \iiiint S(E,p,\gamma,R,z,\phi)\delta(R-R_0)\delta(z-z_0)\delta(\phi - \phi_0)\,d\gamma\, dR\, dz\, d\phi.
 \end{equation}
-At this point, we come to a clear understanding of what a velocity-space weight function actually is. A velocity-space weight function is the average signal produced by a fast ion with a given energy and pitch. 
+At this point, we come to a clear understanding of what a velocity-space weight function actually is: a velocity-space weight function is the average signal produced by a fast ion with a given energy and pitch. 
 
 \section{Orbit Weight Functions}\label{sec:orbit_weight}
 A reduction of the phase-space, as done in Equation \ref{eq:vs_reduction}, greatly simplifies analysis and facilitates tomographic reconstructions by reducing the number of unknown parameters.
@@ -119,14 +119,14 @@ In order to reduce the phase-space as much as possible without sacrificing model
 Action-angle coordinates are a set of canonical coordinates with the special property that the action variables, $\mathbf{J}$, are invariants of the motion and the angle coordinates, $\mathbf{\Theta}$, are cyclic/ignorable and can, therefore, be safely averaged over when reducing the phase-space. 
 In these coordinates, information preserving phase-space reductions can then be succinctly expressed as
 \begin{equation}\label{eq:action_angle_reduction}
-    W(\mathbf{J}) = \left( \prod_i \frac{1}{\tau_i} \right) \int_0^{\tau_1}\ldots\int_0^{\tau_i} S(\mathbf{J},\mathbf{\Theta})\, d\mathbf{\Theta}
+    W(\mathbf{J}) = \left( \prod_i \frac{1}{\tau_i} \right) \int_0^{\tau_1}\ldots\int_0^{\tau_i} S(\mathbf{J},\mathbf{\Theta})\, d\mathbf{\Theta}\,,
 \end{equation}
 where $\tau_i$ are the periods of the angle coordinates and $W(\mathbf{J})$ is the action-space weight functions which is interpreted to be the average signal produced by a fast ion with action coordinates $\mathbf{J}$, similar to the velocity-space weight functions. 
 
 The total diagnostic signal can be calculated using these action-space weight functions. Consider the subset of fast ions in a plasma with action coordinates, $\mathbf{J}_k$.
 The signal produced by these fast ions is given by
 \begin{equation}\label{eq:orbit_tomography_discrete}
-    S_k = \sum_i^{N_k} S(\mathbf{J}_k,\mathbf{\Theta}_i) = N_k \sum_i^{N_k} S(\mathbf{J}_k,\mathbf{\Theta}_i)/N_k
+    S_k = \sum_i^{N_k} S(\mathbf{J}_k,\mathbf{\Theta}_i) = N_k \sum_i^{N_k} S(\mathbf{J}_k,\mathbf{\Theta}_i)/N_k\,,
 \end{equation}
 where $N_k$ is the number of fast ions with action coordinates $\mathbf{J}_k$.
 The sum on the right-hand side is the average signal produced by the subset of fast ions. This is identical to the interpretation of the action-space weight function.
@@ -139,7 +139,7 @@ As in velocity-space tomography, when there are multiple measurements, Equation 
 
 An action-angle parametrization of the guiding center motion of a fast ion in a tokamak has three action coordinates and three angle coordinates.
 There are many possible choices for action-angle coordinates; the classical choice being the canonical constants of motion: energy, magnetic moment, and toroidal canonical angular momentum, $\mathbf{J} = (E,\mu,p_\phi)$.
-However, due to an ambiguity in the sign of $v_\parallel$ in the definition of $p_\phi$, the classical choice of coordinates does not always \textit{uniquely} label distinct orbits, i.e. a single action coordinate $ \mathbf{J}_k$ in this space could correspond to two different orbit trajectories i.e. orbit degeneracy. This can be plainly seen by expressing the magnetic moment as a function of the energy and toroidal angular momentum. 
+However, due to an ambiguity in the sign of $v_\parallel$ in the definition of $p_\phi$, the classical choice of coordinates does not always \textit{uniquely} label distinct orbits, i.e. a single action coordinate $ \mathbf{J}_k$ in this space could correspond to two different orbit trajectories (orbit degeneracy). This can be plainly seen by expressing the magnetic moment as a function of the energy and toroidal angular momentum. 
 \begin{equation}\label{eq:mu}
 \mu(R,Z) = \frac{E}{B(R,Z)} - \frac{B(R,Z)}{2m} \left ( \frac{p_\phi - q\Psi(R,Z)}{RB_\phi(R,Z)}\right)^2
 \end{equation}
@@ -157,17 +157,17 @@ Orbit degeneracy also makes it impossible to use Equation \ref{eq:action_angle_r
 To avoid this problem, we use a modified version of the coordinates first promoted by Rome\cite{rome1979} and others\cite{petrov2016}.
 Here we define the action coordinates, hereby called orbit-space coordinates, to be
 \begin{equation}\label{eq:orbit_action}
-    \mathbf{J} = (E, p_m, R_m)
+    \mathbf{J} = (E, p_m, R_m)\,,
 \end{equation}
 where $E$ is the energy, $R_m$ is the maximal radius along the orbit, and $p_m$ is the pitch with respect to the plasma current at $R_m$.
 The angle variables, which describe the position of the fast ion along the orbit, are
 \begin{equation}\label{eq:orbit_angle}
-    \mathbf{\Theta} = (t, \gamma, \phi_0)
+    \mathbf{\Theta} = (t, \gamma, \phi_0)\,,
 \end{equation}
 where $t$ is the time, $\gamma$ is the gyro-angle, and $\phi_0$ is the initial toroidal angle.
 Applying Equation \ref{eq:action_angle_reduction} yields the definition of an orbit weight function,
 \begin{equation}\label{eq:orbit_weight}
-    W(E,p_m,R_{m}) = \frac{1}{4\pi^2 \tau_p}\int_0^{2\pi} \int_0^{2\pi} \int_0^{\tau_p} S(E,p_m,R_{m},t,\gamma,\phi_0)\,dt\, d\gamma d\phi_0
+    W(E,p_m,R_{m}) = \frac{1}{4\pi^2 \tau_p}\int_0^{2\pi} \int_0^{2\pi} \int_0^{\tau_p} S(E,p_m,R_{m},t,\gamma,\phi_0)\,dt\, d\gamma d\phi_0\,,
 \end{equation}
 where $\tau_p$ is the poloidal transit time.
 
@@ -187,9 +187,9 @@ plus indicates the magnetic axis and the dashed line is the last-closed flux sur
 \subsection{Numerical Calculation of Orbit Weight Functions}
 As the name suggests, fast-ion orbits are needed to calculate orbit weight functions. The orbit trajectories are found by solving the guiding-center drift orbit ordinary differential equation given by
 \begin{equation}\label{eq:gc_ode}
-    \mathbf{v}_{GC} = \frac{v_{\parallel}\mathbf{B}}{|B|} + \mathbf{v}_{E \times B} + \mathbf{v}_{grad} + \mathbf{v}_{curv}
+    \mathbf{v}_{GC} = \frac{v_{\parallel}\mathbf{B}}{|B|} + \mathbf{v}_{E \times B} + \mathbf{v}_{grad} + \mathbf{v}_{curv}\,,
 \end{equation}
-where $v_{\parallel}$ is the velocity parallel to the magnetic field $\mathbf{B}$ and the remaining terms are the $E\times B$, gradient, and curvature drifts respectively. Notice that unlike other guiding center orbit codes the inclusion of the $E \times B$ drift is necessary.
+where $v_{\parallel}$ is the velocity parallel to the magnetic field $\mathbf{B}$ and the remaining terms are the $E\times B$, gradient, and curvature drifts respectively. Notice that unlike other guiding center orbit codes, the inclusion of the $E \times B$ drift is necessary.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=7cm]{figures/orbit_er.eps}
@@ -200,7 +200,7 @@ As shown in Figure \ref{fig:orbit_er}, including the effects of the radial elect
 
 The orbit coordinates, describe in the previous section, provide three out of the four initial conditions needed to solve Equation \ref{eq:gc_ode}: the kinetic energy, pitch, and $R$. The fourth initial condition is the initial $Z$ position of the fast-ion. The initial Z position is found by finding the point of minimum poloidal flux at a fixed value of major radius, $R_m$. Since fast-ions are mostly tied to a flux surface at the outermost legs of their orbits, the point of minimum flux is also a point on the orbit.
 
-Once all the initial conditions are found, Equation \ref{eq:gc_ode} is solved for one poloidal transit time of the orbit, with particle locations and velocities dumped at equal time steps throughout the interval $[0,\tau_p)$. The particles are given equal weights and loaded into the diagnostic's forward model e.g. FIDASIM---this is equivalent to evaluating the integral in Equation \ref{eq:orbit_weight}. Orbits that are degenerate or intersect the vessel wall have null orbit weights and are excluded.
+Once all the initial conditions are found, Equation \ref{eq:gc_ode} is solved for one poloidal transit time of the orbit, with particle locations and velocities dumped at equal time steps throughout the interval $[0,\tau_p)$. The particles are given equal weights and loaded into the diagnostic's forward model, e.g. FIDASIM---this is equivalent to evaluating the integral in Equation \ref{eq:orbit_weight}. Orbits that are degenerate or intersect the vessel wall have null orbit weights and are excluded.
 
 The calculation of the orbit weights can be computationally intensive. To reduce the computational time, an orbit with small time steps can be down-sampled to an orbit with larger time steps. This reduces the number of particles used in the calculation. Using a down-sampling method, instead of using a larger time step when the orbit is first calculated, perseveres the accuracy of the orbit trajectory. Typically, the down-sampling time step is chosen such that the mean poloidal distance between particles is $\sim1$ cm. An example of a down-sampled orbit is shown in Figure \ref{fig:down_sample}.
 \begin{figure}[h!]
@@ -223,7 +223,7 @@ DIII-D shot \#159243 at 790 ms. This discharge, which is discussed in detail in
  Ref. \cite{heidbrink2017}, is a reversed-shear plasma with toroidal field of 2.0 T and
 plasma current of +0.8 MA (counter clockwise). The fast-ion population is created by
 deuterium neutral beams of energy 70-81 keV that are injected in
-both the co-current and counter-current directions. Although, the discharge has extensive Alfv\'en
+both the co-current and counter-current directions. Although the discharge has extensive Alfv\'en
 eigenmode activity, only the ``classical'' distribution function calculated by NUBEAM
 \cite{NUBEAM} in the absence of wave-induced transport is considered here.
 Projections of the orbit-space fast-ion distribution function for the shot are shown in 
@@ -231,7 +231,7 @@ Figure \ref{fig:distribution}.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=15cm]{orbit_distribution}
-    \caption{Projections of the orbit-space fast-ion distribution for shot \#159243 at 790 ms. Each projection is the full 3D distribution integrated over one of the variables e.g. $F_z(x,y) = \int F(x,y,z)\;dz$.  Each projection is normalized to unity. The color-map increases linearly from dark(black) to light(yellow).}
+    \caption{Projections of the orbit-space fast-ion distribution for shot \#159243 at 790 ms. Each projection is the full 3D distribution integrated over one of the variables, e.g. $F_z(x,y) = \int F(x,y,z)\;dz$.  Each projection is normalized to unity. The color-map increases linearly from dark(black) to light(yellow).}
     \label{fig:distribution}
 \end{figure}
 
@@ -255,7 +255,7 @@ In isolation, the neutron orbit weight function gives insight into the underlyin
     \caption{Normalized projections of the 3D neutron orbit weight function.}
     \label{fig:neutron_orbit_weight}
 \end{figure}
-For example, the strong energy dependence of the orbit weight function indicates that the effect of the neutron cross section is considerable. This type of analysis can also be done using velocity-space weight functions, however, with orbit weights the sensitivity of the diagnostic to individual orbit types can also be analyzed.
+For example, the strong energy dependence of the orbit weight function indicates that the effect of the neutron cross section is considerable. This type of analysis can also be done using velocity-space weight functions; however, with orbit weights the sensitivity of the diagnostic to individual orbit types can also be analyzed.
 \begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|c|c|}
@@ -292,7 +292,7 @@ $\sim45^{\circ}$ with respect to the midplane. The solid state NPA system (ssNPA
 
 \subsubsection{NPA Orbit Weight Function}
 The solid state NPA (ssNPA) diagnostic measures fast neutrals, born of charge exchange, that escape the plasma. DIII-D utilizes three separate channels, each viewing the 210RT neutral beam at a different radial location (Fig. \ref{fig:geometry}). In its present configuration, the detectors are operated in current mode \cite{ssNPA2012}.
-Figure \ref{fig:npa_orbit_weight} shows the orbit weight function for the central channel. Upon inspection, it shows that the ssNPA diagnostic is localized in space ($R_m$) and in pitch ($p_m$) but, because the detector is operated in current mode, it is also sensitive to a large swath of energies. The localization in space and pitch is caused by the narrow collimation of the diagnostic. In a three dimensional view, the orbit weight function is characterized as a line through the orbit-space. As an aside, the previously discussed imaging NPA\cite{du2018inpa}, which is similarly localized in pitch but has an extended radial view, has an orbit weight function that takes the form of a 2d surface within the 3D orbit-space.
+Figure \ref{fig:npa_orbit_weight} shows the orbit weight function for the central channel. Upon inspection, it shows that the ssNPA diagnostic is localized in space ($R_m$) and in pitch ($p_m$), but, because the detector is operated in current mode, it is also sensitive to a large swath of energies. The localization in space and pitch is caused by the narrow collimation of the diagnostic. In a three dimensional view, the orbit weight function is characterized as a line through the orbit-space. As an aside, the previously discussed imaging NPA\cite{du2018inpa}, which is similarly localized in pitch but has an extended radial view, has an orbit weight function that takes the form of a 2d surface within the 3D orbit-space.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=15cm]{figures/npa_orbit_weight_2.eps}
@@ -326,7 +326,7 @@ We can also view the orbit weight function for a blue shifted wavelength for the
     \caption{Projections of the blue shifted ($\lambda = 652 \pm 0.2$ nm) FIDA orbit weight function for an oblique viewing chord with midplane intersection at R=1.9 m.}
     \label{fig:fida_blue}
 \end{figure}
-Unlike the red shifted orbit weight function the blue shifted weight function is not sensitive to counter-passing particles, only showing sensitivity to orbits that are co-passing in the viewing region.
+Unlike the red shifted orbit weight function, the blue shifted weight function is not sensitive to counter-passing particles; only showing sensitivity to orbits that are co-passing in the viewing region.
 
 Like the other diagnostics, the spectra calculated using orbit weight functions closely matches the spectra produced by FIDASIM (Fig. \ref{fig:fida_orbit_spectra}). Also compared in the figure is the spectra calculated using velocity-space weight functions, which performs poorly in this case.
 \begin{figure}[h!]
