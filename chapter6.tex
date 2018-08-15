@@ -25,7 +25,7 @@ In addition to the increased fidelity of the linearized forward model, Orbit Tom
     \caption{FIDA orbit weights/spectra produced by three different orbits: trapped ($\rm{\mathbf{J}=(50\;keV,\;0.5,\;2.1\;m)}$), co-passing ($\rm{\mathbf{J}=(50\;keV,\;0.7,\;2.1\;m)}$), and counter passing ($\rm{\mathbf{J}=(50\;keV,\;-0.5,\;1.82\;m)}$). Arrows indicate direction of the fast-ion poloidal velocity. (a): Polodial projection of the orbits and oblique FIDA chords. (b): FIDA spectra produced by the orbits at R=1.8 m. (c): FIDA spectra produced by the orbits at R=2.1 m. (d): Radial profile of FIDA spectra integrated from 647-667 nm.}
     \label{fig:orbit_fida_spectra}
 \end{figure}
-In Orbit tomography, the fundamental quantity is the fast-ion orbit. This is more natural then the ``pixels'' used in Velocity-space Tomography. Unlike ``pixels'', fast-ion orbits naturally correlate different spatial locations.
+In Orbit tomography, the fundamental quantity is the fast-ion orbit. This is more natural than the ``pixels'' used in Velocity-space Tomography. Unlike ``pixels'', fast-ion orbits naturally correlate different spatial locations.
 Figure \ref{fig:orbit_fida_spectra} shows the wavelength dependent FIDA weight functions for a co-passing, counter-passing, and trapped orbit. Consider the innermost viewing chord in Figure \ref{fig:orbit_fida_spectra}a. The counter-passing and trapped orbits are moving away from the camera, producing strong red-shifted spectra (Fig. \ref{fig:orbit_fida_spectra}b). Interestingly, the co-passing orbit, despite being spatially separated from the collection region of the innermost viewing chord, produces a weak blue-shifted spectrum. The opposite is seen in the outermost viewing chord, Figure \ref{fig:orbit_fida_spectra}c, where the co-passing and trapped orbits produce a strong blue-shifted spectra and the counter-passing orbit produces a weaker red-shifted spectrum. The fast-ion orbits are correlating the different viewing chords together. Figure \ref{fig:orbit_fida_spectra}d proves this assertion by showing the integrated FIDA signal produced by each orbit over a radial array of viewing chords. Since the viewing chords are sensitive, to varying degrees, to all the orbits, any diagnostic, regardless of geometry, can be used in Orbit Tomography. This is a large improvement over Velocity-space Tomography, which is limited to spatially overlapping diagnostics. 
 
 However, the largest advantage Orbit Tomography has over Velocity-space Tomography is the ability to infer the entire fast-ion distribution, not just a local approximation. In Velocity-space Tomography, there is no way to know how different spatial locations are related. In Orbit Tomography, orbits connect different locations together---measuring one part of the orbit automatically gives information along the entire orbit. This allows us to gain information about spatial locations that are not directly measured. Multiple radial FIDA arrays are then sufficient to infer the \textit{entire} fast-ion distribution function. 
@@ -91,7 +91,7 @@ Once the posterior is known, the best set of parameters is found by either compu
 \subsubsection{Prior \& Likelihood Probabilities}
 There are several pieces of prior information that can be exploited.
 First off, though it may not be immediately obvious, there is strong prior information in the well-diagnosed magnetic equilibrium.
-Whatever form the estimate of the fast-ion distribution function takes, the magnetic equilibrium must be able to support it---just as an architect can only redesign a house to be consistent with its existing framing.
+Whatever form the fast-ion distribution function takes, the magnetic equilibrium must be able to support it---just as an architect can only redesign a house to be consistent with its existing framing.
 Fortunately, this \textit{structural} constraint is already incorporated in the form of the trajectories of the fast-ion orbits, ensuring that our estimate of the distribution function will, at least, be consistent with the magnetic equilibrium.  
 The rest of our prior information is rather obvious: the distribution should be smooth, non-negative, and ``close'' to  theoretical predictions. The smoothness and ``closeness'' can be represented by using a Gaussian Process prior:
 \begin{equation}\label{eq:prior}
@@ -341,7 +341,7 @@ Since the entire fast-ion distribution function is at our disposal, we can zoom 
 \end{figure}
 
 \section{Discussion}
-With the validation of the results of previous sawtooth experiments, Orbit Tomography has proven itself to be a powerful new analysis technique.
+With the validation of the results from previous sawtooth experiments, Orbit Tomography has proven itself to be a powerful new analysis technique.
 Before Orbit Tomography, there was no way to \textit{know} what fast-ion distribution generated the diagnostic measurements.
 The only thing that could be definitively stated was that a given theoretical distribution produces synthetic data that is consistent with all the experimental measurements.
 This can lead to binary conclusions---If the synthetic data matched the experimental data then we could state that the fast-ions behaved as expected; if synthetic data \textit{didn't} match the experimental data then we could state that the fast-ions \textit{didn't} behave as expected.
@@ -352,4 +352,4 @@ For experimental physicists, it facilitates analysis that could only have been p
 Orbit Tomography also allows experimentalists to know, in great detail, what the knobs on the tokamak actually do to the fast-ion distribution function.
 This leads to more agile development of optimized regimes---we try an experiment, we use Orbit Tomography to determine what happened to the distribution, with that information we improve the experiment. This type of iterated development could lead to the faster creation of high performance scenarios. 
 
-In its current form, Orbit Tomography could fundamentally change fast-ion physics, however, it would not do to rest on one's laurels. In the next chapter, we look towards the future of Orbit Tomography where we discuss ways to improve the method and an exciting new application of the technique.
+In its current form, Orbit Tomography could fundamentally change fast-ion physics; however, it would not do to rest on one's laurels. In the next chapter, we look towards the future of Orbit Tomography where we discuss ways to improve the method and an exciting new application of the technique.

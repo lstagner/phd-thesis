@@ -7,7 +7,7 @@ In an effort to aid the modeling, interpretation, and experimental design of fas
 \begin{equation}\label{eq:vs_WF}
     S_{tot} = \iint W(E,p)F(E,p)\,dEdp\,,
 \end{equation}
-where $S_{tot}$ is the total diagnostic signal, $F(E,p)$ is the fast-ion energy-pitch distribution function, and $W(E,p)$ is a diagnostic weighting function, colloquially known as the velocity-space weight function. The weight function indicates the phase-space sensitivity of the diagnostic, allowing for easier interpretation of the diagnostic data. As an aside, it is also common to formulate the weight functions in terms of the velocities parallel and perpendicular to the magnetic field, hence the name velocity-space weight functions. The transformation between the two coordinates is detailed in Appendix \ref{app:ep2vs}.
+where $S_{tot}$ is the total diagnostic signal, $F(E,p)$ is the fast-ion energy-pitch distribution function, and $W(E,p)$ is a diagnostic weighting function, colloquially known as the velocity-space weight function. The weight function indicates the phase-space sensitivity of the diagnostic, allowing for easier interpretation of the diagnostic data. As an aside, it is also common to formulate the weight functions in terms of the velocities parallel and perpendicular to the magnetic field, hence the name velocity-space weight functions. The transformation between the two coordinate systems is detailed in Appendix \ref{app:ep2vs}.
 
 In the following sections, we will discuss how velocity-space weight functions are used and their limitations. We then show how to derive generalized diagnostic weight functions from the full forward models. With this firm theoretical footing, we also show how the generalized weight functions can be used to derive weight functions in guiding-center orbit space.
 
@@ -66,7 +66,7 @@ weight functions.  Near the magnetic axis (Fig.~\ref{fig:fida_spectra}a), the ca
 spectrum agrees fairly well with FIDASIM, indicating that the velocity-space weight function method is fairly accurate. However,
 off-axis (Fig.~\ref{fig:fida_spectra}b), the spectrum calculated with
 velocity-space weight functions deviates significantly from FIDASIM.  Comparisons with simulations that use an uniform fast-ion distribution are not discrepant, showing that spatial variations are responsible for the deviation.
-Generally, as in Figure \ref{fig:fida_spectra}, velocity-space weight functions agree with FIDASIM in the core, where spatial gradients are relatively smaller, than in the periphery, where variations in the fast-ion density and other quantities tend to be large.
+Generally speaking, velocity-space weight functions agree with FIDASIM in the core, where spatial gradients are relatively smaller, than in the periphery, where variations in the fast-ion density and other quantities tend to be large.
 This trend is also seen in Figure \ref{fig:fida_waveform}.
 
 Another mark against velocity-space weight functions is that velocity-space tomography requires overlapping diagnostic views.
@@ -93,7 +93,7 @@ In the continuum limit, the discrete sum in the above equation can be replaced b
     S_{tot} = \int S(\mathbf{x})\,N \sum_{\mathbf{x}_k \in R_{X}} P_X(\mathbf{x}_k) \delta(\mathbf{x} - \mathbf{x}_k) d\mathbf{x} = \int S(\mathbf{x}) F(\mathbf{x}) d\mathbf{x},
 \end{equation}
 where $F(\mathbf{x})$ is the fast-ion distribution function.
-By inspection, it is clear that Equation \ref{eq:SF} is the generalized version of equation \ref{eq:vs_WF}.
+By inspection, it is clear that Equation \ref{eq:SF} is the generalized version of Equation \ref{eq:vs_WF}.
 
 Upon comparing Equation \ref{eq:SF} with how FIDASIM simulates the diagnostics, it is apparent that they are equivalent as FIDASIM evaluates Equation \ref{eq:SF} via Monte Carlo integration.
 \begin{equation}
@@ -116,12 +116,12 @@ In other words, only variables that do not appear in the Lagrangian (i.e. ignora
 By this standard, the phase-space reduction done in Equation \ref{eq:vs_reduction} is inadequate since only the gyro and toroidal angle averaging was permissible. 
 
 In order to reduce the phase-space as much as possible without sacrificing model fidelity, it is advantageous to express the expected diagnostic signal, $S$, in canonical action-angle coordinates, $\mathbf{x} = (\mathbf{J},\mathbf{\Theta})$.
-Action-angle coordinates are a set of canonical coordinates with the special property that the action variables, $\mathbf{J}$, are invariants of the motion and the angle coordinates, $\mathbf{\Theta}$, are cyclic/ignorable and can, therefore, be safely averaged over when reducing the phase-space. 
+Action-angle coordinates are a set of canonical coordinates with the special property that the action variables, $\mathbf{J}$, are invariants of the motion and the angle coordinates, $\mathbf{\Theta}$, are cyclic/ignorable and can therefore be safely averaged over when reducing the phase-space. 
 In these coordinates, information preserving phase-space reductions can then be succinctly expressed as
 \begin{equation}\label{eq:action_angle_reduction}
     W(\mathbf{J}) = \left( \prod_i \frac{1}{\tau_i} \right) \int_0^{\tau_1}\ldots\int_0^{\tau_i} S(\mathbf{J},\mathbf{\Theta})\, d\mathbf{\Theta}\,,
 \end{equation}
-where $\tau_i$ are the periods of the angle coordinates and $W(\mathbf{J})$ is the action-space weight functions which is interpreted to be the average signal produced by a fast ion with action coordinates $\mathbf{J}$, similar to the velocity-space weight functions. 
+where $\tau_i$ are the periods of the angle coordinates and $W(\mathbf{J})$ is the action-space weight functions which is interpreted to be the average signal produced by a fast ion with action coordinates $\mathbf{J}$, similar to the interpretation of velocity-space weight functions. 
 
 The total diagnostic signal can be calculated using these action-space weight functions. Consider the subset of fast ions in a plasma with action coordinates, $\mathbf{J}_k$.
 The signal produced by these fast ions is given by
@@ -135,7 +135,7 @@ The total diagnostic signal can then be expressed as a linear combination of wei
     S_{tot} = \sum_k N_k W(\mathbf{J}_k) .
 \end{equation}
 In the context of guiding center motion, $\mathbf{J}_k$ acts as a label for an individual fast-ion orbit. Therefore, Equation \ref{eq:orbit_tomography} can be interpreted as a sum of the signal produced by each fast-ion orbit.
-As in velocity-space tomography, when there are multiple measurements, Equation \ref{eq:orbit_tomography} can be put into matrix form, creating a system of linear equations that can be solved. This is discussed in Chapter \ref{chap:orbit_tomography}.
+As in velocity-space tomography, when there are multiple measurements Equation \ref{eq:orbit_tomography} can be put into matrix form, creating a system of linear equations that can be solved. This is discussed in Chapter \ref{chap:orbit_tomography}.
 
 An action-angle parametrization of the guiding center motion of a fast ion in a tokamak has three action coordinates and three angle coordinates.
 There are many possible choices for action-angle coordinates; the classical choice being the canonical constants of motion: energy, magnetic moment, and toroidal canonical angular momentum, $\mathbf{J} = (E,\mu,p_\phi)$.
@@ -154,7 +154,7 @@ Figure \ref{fig:hamiltonian_orbits} shows a scan over $\mu$ for a fixed $E$ and 
 The large distance between the orbits indicate that their fast-ion populations are independent and should be treated separately.
 Orbit degeneracy also makes it impossible to use Equation \ref{eq:action_angle_reduction} to reduce the phase-space since the angle variables of the two orbits would have different periods.
 
-To avoid this problem, we use a modified version of the coordinates first promoted by Rome\cite{rome1979} and others\cite{petrov2016}.
+To avoid this problem, we use a modified version of the coordinates promoted by Rome\cite{rome1979} and others\cite{petrov2016}.
 Here we define the action coordinates, hereby called orbit-space coordinates, to be
 \begin{equation}\label{eq:orbit_action}
     \mathbf{J} = (E, p_m, R_m)\,,
@@ -171,9 +171,8 @@ Applying Equation \ref{eq:action_angle_reduction} yields the definition of an or
 \end{equation}
 where $\tau_p$ is the poloidal transit time.
 
-This choice of orbit-space coordinates has several nice properties. The space has natural boundaries in all three coordinates ($E = [0,E_{max}]$, $R_m = [R_{axis},R_{wall}]$, and $p_m = [-1,1]$),
- which makes it easy to enumerate all possible orbit trajectories for a given magnetic equilibrium.
-Additionally, as can be seen in the topological map of the orbit-space in Fig. \ref{fig:orbit_topology}, counter-passing orbits are easily identified by the sign of $p_m$.
+This choice of orbit-space coordinates has several nice properties. The space has natural boundaries in all three coordinates ($E = [0,E_{max}]$, $R_m = [R_{axis},R_{wall}]$, and $p_m = [-1,1]$), which makes it easy to enumerate all possible orbit trajectories for a given magnetic equilibrium.
+Additionally, as can be seen in the topological map of the orbit-space in Figure \ref{fig:orbit_topology}, counter-passing orbits are easily identified by the sign of $p_m$.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=15cm]{figures/orbit_topology3.eps}
@@ -196,7 +195,7 @@ where $v_{\parallel}$ is the velocity parallel to the magnetic field $\mathbf{B}
     \caption{Two orbits, one including the effects of the radial electric field (red line), one without (blue dashed line). Including the radial electric field changes the orbit topology.}
     \label{fig:orbit_er}
 \end{figure}
-As shown in Figure \ref{fig:orbit_er}, including the effects of the radial electric field can substantially change the trajectory of the orbit and, consequentially, the orbit's weight function. For this reason, the $E \times B$ drift must be included.
+As shown in Figure \ref{fig:orbit_er}, including the effects of the radial electric field can substantially change the trajectory of an orbit and, consequentially, the orbit's weight function. For this reason, the $E \times B$ drift must be included.
 
 The orbit coordinates, describe in the previous section, provide three out of the four initial conditions needed to solve Equation \ref{eq:gc_ode}: the kinetic energy, pitch, and $R$. The fourth initial condition is the initial $Z$ position of the fast-ion. The initial Z position is found by finding the point of minimum poloidal flux at a fixed value of major radius, $R_m$. Since fast-ions are mostly tied to a flux surface at the outermost legs of their orbits, the point of minimum flux is also a point on the orbit.
 
@@ -292,7 +291,7 @@ $\sim45^{\circ}$ with respect to the midplane. The solid state NPA system (ssNPA
 
 \subsubsection{NPA Orbit Weight Function}
 The solid state NPA (ssNPA) diagnostic measures fast neutrals, born of charge exchange, that escape the plasma. DIII-D utilizes three separate channels, each viewing the 210RT neutral beam at a different radial location (Fig. \ref{fig:geometry}). In its present configuration, the detectors are operated in current mode \cite{ssNPA2012}.
-Figure \ref{fig:npa_orbit_weight} shows the orbit weight function for the central channel. Upon inspection, it shows that the ssNPA diagnostic is localized in space ($R_m$) and in pitch ($p_m$), but, because the detector is operated in current mode, it is also sensitive to a large swath of energies. The localization in space and pitch is caused by the narrow collimation of the diagnostic. In a three dimensional view, the orbit weight function is characterized as a line through the orbit-space. As an aside, the previously discussed imaging NPA\cite{du2018inpa}, which is similarly localized in pitch but has an extended radial view, has an orbit weight function that takes the form of a 2d surface within the 3D orbit-space.
+Figure \ref{fig:npa_orbit_weight} shows the orbit weight function for the central channel. Upon inspection, it shows that the ssNPA diagnostic is localized in space ($R_m$) and in pitch ($p_m$), but, because the detector is operated in current mode, it is also sensitive to a large swath of energies. The localization in space and pitch is caused by the narrow collimation of the diagnostic. In a three dimensional view, the orbit weight function is characterized as a line through the orbit-space. As an aside, the previously discussed Imaging NPA\cite{du2018inpa}, which is similarly localized in pitch but has an extended radial view, has an orbit weight function that takes the form of a 2d surface within the 3D orbit-space.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=15cm]{figures/npa_orbit_weight_2.eps}

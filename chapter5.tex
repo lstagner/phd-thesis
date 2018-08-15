@@ -39,7 +39,7 @@ The minimum, $\mathbf{\hat{f}}$, of the above equation can be found analytically
 This is known as the least-squares solution or the maximum likelihood solution.
 
 The least-squares method is usually the first inversion technique tried and the first one discarded. While the overall idea behind the method is sound, least-squares solutions tend to fit the noise rather than the true underlying signal. This produces noisy and nonphysical solutions, limiting the least-squares method to situations where the experimental noise is very low and the model is very accurate; neither of which is the case for Velocity-space Tomography.
-All is not lost, however, as there are numerous methods that can improve the least-squares solution.   
+However, all is not lost as there are numerous methods that can improve the least-squares solution.   
 
 \subsection{Truncated Singular Value Decomposition} \label{sec:tsvd}
 Truncated singular value decomposition (TSVD) is one method that can reduce the effects of noise.
@@ -76,7 +76,7 @@ While this is a bit of interesting mathematics, it is not immediately clear how 
 where the first sum is the true solution, $\mathbf{f}_{\rm{true}}$, and the last sum describes the effect of the noise, $\mathbf{f}_{\rm{noise}}$. For very small singular values, the least-squares solution can be completely dominated by the noise term. We can reduce the effect of the noise by truncating the sum after $k$ terms, eliminating the effects of the smallest singular values. However, since the measured signal cannot be separated from the noise, the truncation would also affect the first sum; making it impossible to reconstruct $\mathbf{f}_{\rm{true}}$ perfectly. In some situations, this is an acceptable trade-off. 
 
 \subsection{Regularized Least-Squares}
-Regularization is the process of adding additional information in order to solve an ill-posed inverse problem. Regularized least-squares is a family of methods that uses the ``regularize'' least-squares solution by adding a function to Equation \ref{eq:least_squares} that constrains the possible set of solutions to have certain properties defined by the regularizer. The regularized least-squares solution is then found by minimizing the modified least-squares problem
+Regularization is the process of adding additional information in order to solve an ill-posed inverse problem. Regularized least-squares is a family of methods that ``regularize'' the least-squares solution by adding a function to Equation \ref{eq:least_squares} that constrains the possible set of solutions to have certain properties defined by the regularizer. The regularized least-squares solution is then found by minimizing the modified least-squares problem
 \begin{equation}\label{eq:regularized_least_squares}
     \mathrm{minimize} \left \lbrace \chi^2(\mathbf{x}) + \alpha \mathcal{R}(\mathbf{x}) \right \rbrace \,,
 \end{equation}
@@ -141,7 +141,7 @@ The minimum of the functional, called the maximum entropy solution, is found usi
 
 \subsection{Hyper-parameter Optimization}
 All of the discussed inversion methods rely on hyper-parameters that need to be chosen \textit{a priori}: the number of singular values, $k$, for truncated SVD and the regularizer strength parameter, $\alpha$, for regularized  least-squares. Usually (and improperly), the hyper-parameters are chosen to give the best looking results. We instead use the L-curve method\cite{Hansen2007} to choose hyper-parameters systematically. 
-In the L-curve method, reconstructions are calculated for a range of hyper-parameter values, storing both the regularizer, $\mathcal{R}(\mathbf{x})$, and the goodness-of-fit, $\chi^2(\mathbf{x})$, values. When plotted on a loglog plot, the regularizer and the goodness-of-fit form a L shape (Fig. \ref{fig:L_curve}). The right part of the Figure shows the associated curvature. The point with maximum curvature is the corner point. The hyper-parameter value at the corner of the L-curve is chosen because it represents a balance between fitting the data and regularizing the solution. The corner is found by finding the point of maximum curvature of the L-curve.
+In the L-curve method, reconstructions are calculated for a range of hyper-parameter values, storing both the regularizer, $\mathcal{R}(\mathbf{x})$, and the goodness-of-fit, $\chi^2(\mathbf{x})$, values. When plotted on a loglog plot, the regularizer and the goodness-of-fit form a L shaped curve (Fig. \ref{fig:L_curve}). The optimal hyper-parameter value is defined to be at the corner of the L-curve because it represents a balance between fitting the data and regularizing the solution. The corner is found by finding the point of maximum curvature of the L-curve (Fig. \ref{fig:L_curve}).
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.95\textwidth]{inversion_methods/figure3.eps}
