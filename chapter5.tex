@@ -225,7 +225,7 @@ All methods reconstruct the position of the Gaussian distribution well. The char
 The minimum Fisher information and maximum entropy regularization methods stand out from the other methods in that they resemble the original function the most and exhibit the least jitter. This suggests superior resolution performance of these methods. Table \ref{tab:synthetic_parameters_blob} contains the true center coordinates and width of the Gaussian distribution in both energy and pitch. Furthermore, it contains the values obtained from the $k=0.5$ reconstructions calculated using the five different methods. All methods find the center coordinates well. The minimum Fisher information and maximum entropy methods produce significantly more peaked distributions, which is seen in their ability to better match the true width of the Gaussian. 
 \begin{table}[h!]
     \caption{\label{tab:synthetic_parameters_blob} Parameters of the Gaussian test distribution. Parameters are found by fitting the reconstructed distributions to the analytic form of the true distribution.}
-    \begin{tabular}{@{}r|llllll}
+    \resizebox{\textwidth}{!}{\begin{tabular}{@{}r|llllll}
      & \textbf{True} & \textbf{SVD} & \textbf{T0} & \textbf{T1} & \textbf{MFI} & \textbf{ME} \\
     \hline\hline
     $\mu_E$ [keV] & 50 & 49.37$\pm$0.22 & 49.55$\pm$0.19 & 48.57$\pm$0.21 &  48.45$\pm$0.06 & 50.78$\pm$0.07 \\
@@ -233,7 +233,7 @@ The minimum Fisher information and maximum entropy regularization methods stand 
     $\mu_p$ [-] & 0 & 0.008$\pm$0.005 & -0.001$\pm$0.004 & -0.001$\pm$0.004 & -0.011$\pm$0.001 & 0.035$\pm$0.002 \\
     $\sigma_p$ [-] & 0.25 & 0.325$\pm$0.007 & 0.329$\pm$0.006 & 0.317$\pm$0.006 & 0.228$\pm$0.02 & 0.242$\pm$0.003 \\
     \hline
-    \end{tabular}
+    \end{tabular}}
 \end{table}
 
 \begin{figure}[h!]
@@ -248,13 +248,13 @@ Figure \ref{fig:tomos_bimax} shows the reconstructions of the bi-Maxwellian dist
 The first-order Tikhonov, minimum Fisher information, and maximum entropy methods reproduce the distribution particularly well. Table \ref{tab:synthetic_parameters_bimax} contains the true parallel and perpendicular temperatures used in calculating the bi-Maxwellian and the values obtained from fitting the $k=0.5$ reconstructions to the analytic form of the bi-Maxwellian. For the bi-Maxwellian distribution, the minimum Fisher information method most closely recreates the true values.
 \begin{table}[h!]
     \caption{\label{tab:synthetic_parameters_bimax} Parameters of the bi-Maxwellian test distribution. Parameters are found by fitting the reconstructed distributions to the analytic form of the true distribution.}
-    \begin{tabular}{@{}r|llllll}
+    \resizebox{\textwidth}{!}{\begin{tabular}{@{}r|llllll}
      & \textbf{True} & \textbf{SVD} & \textbf{T0} & \textbf{T1} & \textbf{MFI} & \textbf{ME} \\
     \hline\hline
     $E_\parallel$ [keV] & 3 & 5.12$\pm$0.19 & 5.34$\pm$0.18 & 4.98$\pm$0.09 & 2.94$\pm$0.06 & 4.09$\pm$0.13 \\
     $E_\perp$ [keV] & 20 & 24.36$\pm$0.73 & 26.26$\pm$0.73 & 23.79$\pm$0.35 & 22.51$\pm$0.32 & 24.73$\pm$0.61 \\
     \hline
-    \end{tabular}
+    \end{tabular}}
 \end{table}
 \begin{figure}[h!]
     \centering

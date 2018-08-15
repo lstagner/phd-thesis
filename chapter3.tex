@@ -115,7 +115,7 @@ Like the plasma parameters, the fast-ion distribution function is mapped onto th
 \begin{figure}
     \centering
     \includegraphics[width=13cm]{figures/fast_ion_distribution.eps}
-    \caption{Projection of the guiding-center fast-ion distribution function for DIII-D discharge \#171469 at 1360 ms. Left: Fast-ion density: $F(R,Z)=\iint F(E,p,R,Z)\,dE\,dp$. Right: Fast-ion velocity-space distribution: $F(E,p)=\iint F(E,p,R,Z)\,R\,dR\,dZ$. Pitch is defined relative to the plasma current.}
+    \caption{Projections of the guiding-center fast-ion distribution function for DIII-D discharge \#171469 at 1360 ms. Left: Velocity-space integrated fast-ion density. Right: Spatially integrated fast-ion velocity-space distribution. Pitch is defined relative to the plasma current.}
     \label{fig:fast_ion_distribution}
 \end{figure}
 It is assumed that the distribution is toroidally symmetric and the gyro-angle is distributed uniformly, $\gamma \sim \mathcal{U}(0,2\pi)$.
@@ -155,7 +155,7 @@ A summary of the various approximations used in the charge exchange tables is gi
 \centering
 \caption{Charge exchange cross section sources. Total cross sections for $n>4$ are not available so the $n=4$ total cross sections are used. The $m$ levels are normalized to the Janev\cite{janev2003collision} tables for consistency. Spreading is done over the $m$ values/rows}
 \label{tab:cx_sources}
-\begin{tabular}{c|c|c|c|c|c|c|c}
+\resizebox{\textwidth}{!}{\begin{tabular}{c|c|c|c|c|c|c|c}
 \textbf{n/m}        & \textbf{1}                          & \textbf{2}                          & \textbf{3}                          & \textbf{4}                    & \textbf{5}                    & \textbf{6}                    & \textbf{Total}  \\ \hline
 \textbf{1} & {\color[HTML]{CB0000} ADAS}         & {\color[HTML]{CB0000} ADAS}         & {\color[HTML]{CB0000} ADAS}         & {\color[HTML]{CB0000} ADAS}   & {\color[HTML]{00009B} Spread} & {\color[HTML]{00009B} Spread} & Janev(n=1)      \\ \hline
 \textbf{2} & {\color[HTML]{036400} Equivalence}  & {\color[HTML]{CB0000} ADAS}         & {\color[HTML]{CB0000} ADAS}         & {\color[HTML]{00009B} Spread} & {\color[HTML]{00009B} Spread} & {\color[HTML]{00009B} Spread} & Janev(n=2)      \\ \hline
@@ -163,7 +163,7 @@ A summary of the various approximations used in the charge exchange tables is gi
 \textbf{4} & {\color[HTML]{036400} Equivalence} & {\color[HTML]{036400} Equivalence} & {\color[HTML]{036400} Equivalence} & {\color[HTML]{00009B} Spread} & {\color[HTML]{00009B} Spread} & {\color[HTML]{00009B} Spread} & Janev(n=4)      \\ \hline
 \textbf{5} & {\color[HTML]{00009B} Spread}       & {\color[HTML]{036400} Equivalence} & {\color[HTML]{036400} Equivalence} & {\color[HTML]{00009B} Spread} & {\color[HTML]{00009B} Spread} & {\color[HTML]{00009B} Spread} & Janev(n=4)      \\ \hline
 \textbf{6} & {\color[HTML]{00009B} Spread}       & {\color[HTML]{036400} Equivalence} & {\color[HTML]{036400} Equivalence} & {\color[HTML]{00009B} Spread} & {\color[HTML]{00009B} Spread} & {\color[HTML]{00009B} Spread} & Janev(n=4)     
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 In addition to the cross sections, we also need the beam-plasma reaction rates, which we can readily calculate from the cross sections. With the assumption that the fast-ion density is small compared to the thermal density (below \%20), the beam-plasma reaction rate is given by an average over a Maxwellian,
